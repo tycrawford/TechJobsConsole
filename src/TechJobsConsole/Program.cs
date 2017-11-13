@@ -141,7 +141,6 @@ namespace TechJobsConsole
                     Console.WriteLine("*****\n");
                 }
             }
-            Console.WriteLine("printJobs is not implemented yet");
         }
     }
 }
