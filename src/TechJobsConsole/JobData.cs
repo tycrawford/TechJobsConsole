@@ -47,9 +47,10 @@ namespace TechJobsConsole
             
             foreach (Dictionary<string, string> row in AllJobs) //looks at all jobs/rows in AllJobs
             {
-                string aValue = row[column]; 
-
-                if (aValue.Contains(value))
+                string aValue = row[column];
+                string noCaseValue = value.ToUpper();
+                string noCaseRow = aValue.ToUpper();
+                if (noCaseRow.Contains(noCaseValue))
                 {
                     jobs.Add(row);
                 }
@@ -70,14 +71,19 @@ namespace TechJobsConsole
                 foreach (KeyValuePair<string, string> field in row)
                 {
                     string aValue = field.Value;
-                    if (aValue.Contains(value))
+                    string noCaseValue = value.ToUpper();
+                    string noCaseField = aValue.ToUpper();
+                    if (noCaseField.Contains(noCaseValue))
                     {
                         hasGoodData = true;
                         
                     }
 
                 }
-                jobs.Add(row);
+                if (hasGoodData)
+                {
+                    jobs.Add(row);
+                }
             }
 
 
